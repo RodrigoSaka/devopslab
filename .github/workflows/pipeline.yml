@@ -2,7 +2,7 @@
 name: DevOpsLab Pipeline
 
 # Evento que irá acionar a pipeline
-on: 
+on:
   push:
     branches:
       - main
@@ -12,15 +12,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.7.11'
+          python-version: '3.10'
 
       - name: Install Requirements
-        run:  pip install flask
-              
+        run: pip install flask
+
       - name: Unit Test
         run: python -m unittest -v test
